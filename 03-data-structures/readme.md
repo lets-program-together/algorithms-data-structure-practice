@@ -10,7 +10,7 @@ To understand why data structures are important, we need context on how a comput
 #### Cache
 * Memory that is built in directly to the CPU. Consequently, is the quickest to read and write but limite in terms of space.  
 
-Data structures are important because data take up physical space on either our RAM, Storage, or cache. Each variable declared takes up certain amounts of "shelves" on our RAM. Accessing "shelves" that are next to each other is quicker than accessing "shelves" that are further apart. *Data structures allow us to organize the memory usage to optimize the read/write that our CPU has to do.*
+Data structures are important because data take up physical space on either our RAM, Storage, or cache. Each variable declared takes up certain amounts of "shelves" on our RAM. Accessing "shelves" that are next to each other is quicker than accessing "shelves" that are further apart. **Data structures allow us to organize the memory usage to optimize the read/write that our CPU has to do.**
 
 ### Common Actions Performed on Data-Structures
 * Insertion
