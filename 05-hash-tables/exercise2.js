@@ -9,6 +9,7 @@
 
 // the key values that I need to keep track of for the brute force method are:
 //  - the characters that reoccured.
+
 //  - how far the recurring characters are from subzero.
 //  - how far the recurring characters are from each other.
 
