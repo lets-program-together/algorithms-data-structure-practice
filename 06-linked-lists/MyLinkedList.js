@@ -13,6 +13,10 @@ class MyLinkedList {
   }
 
   get(idx) {
+    if (idx >= this.length) {
+      return null;
+    }
+
     let currentNode = this.head;
     let counter = 0;
     while (counter < idx) {
@@ -57,6 +61,28 @@ class MyLinkedList {
     currentNode.next = newNode;
     this.length++
     return this
+  }
+
+  remove(idx) {
+    if (idx >= this.length) {
+      throw new Error('No value exists at that index');
+    }
+
+    if (idx === 0) {
+      this.head = this.head.next;
+      return this.head;
+    }
+
+    let previousNode = this.get(idx - 1);
+    let nodeToRemove = previousNode.next;
+    previousNode.next = nodeToRemove.next;
+
+    if (idx >= this.length) {
+      this.tail = previousNode;
+    }
+
+    this.length--;
+    return nodeToRemove;
   }
 
   inspect() {
