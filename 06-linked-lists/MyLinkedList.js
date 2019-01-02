@@ -2,6 +2,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.previous = null;
   }
 }
 
@@ -28,17 +29,41 @@ class MyLinkedList {
 
   append(value) {
     const newNode = new Node(value);
+    newNode.previous = this.tail;
+
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
     return this;
   }
 
+  pop() {
+    let nodeToRemove = this.tail;
+    nodeToRemove.previous.next = null;
+    this.tail = nodeToRemove.previous;
+
+    this.length--;
+    return nodeToRemove;
+  }
+
   prepend(value) {
     const newNode = new Node(value);
+    newNode.next = this.head;
+
+    this.head.previous = newNode;
     this.head = newNode;
+
     this.length++;
     return this;
+  }
+
+  decapitate() {
+    let nodeToRemove = this.head;
+    nodeToRemove.next.previous = null;
+    this.head = nodeToRemove.next;
+
+    this.length--;
+    return nodeToRemove;
   }
 
   insert(value, n) {
@@ -52,12 +77,15 @@ class MyLinkedList {
     }
     // traverse the list incrementing n by one each time.
     let currentNode = this.get(n - 1);
-    // when we reach n - 1, create a new node with the input value.
-    let newNode = new Node(value)
-    // make the new node's next point to (n - 1)' next.
     let nextNode = currentNode.next;
+    // when we reach n - 1, create a new node with the input value.
+    // set the newNode's next and previous to the appropriate values nodes.
+    let newNode = new Node(value)
     newNode.next = nextNode;
-    // make (n - 1)'s next point to the new node.
+    newNode.previous = currentNode;
+
+    // update previousNode and nextNode pointer to correctly point to newNode.
+    nextNode.previous = newNode;
     currentNode.next = newNode;
     this.length++
     return this
@@ -67,31 +95,34 @@ class MyLinkedList {
     if (idx >= this.length) {
       throw new Error('No value exists at that index');
     }
-
     if (idx === 0) {
-      this.head = this.head.next;
-      return this.head;
+      return this.decapitate();
+    }
+    if (idx === (this.length - 1)) {
+      return this.pop();
     }
 
-    let previousNode = this.get(idx - 1);
-    let nodeToRemove = previousNode.next;
-    previousNode.next = nodeToRemove.next;
-
-    if (idx >= this.length) {
-      this.tail = previousNode;
-    }
+    // find the node to remove and update pointers to skip node.
+    let nodeToRemove = this.get(idx);
+    nodeToRemove.previous.next = nodeToRemove.next;
+    nodeToRemove.next.previous = nodeToRemove.previous;
 
     this.length--;
-    return nodeToRemove;
+    return nodeToRemove
+
   }
 
   inspect() {
     let list = [];
     let currentNode = this.head;
     while (currentNode) {
-      list.push(currentNode.value);
+      list.push({
+        value: currentNode.value,
+        next: currentNode.next && currentNode.next.value,
+        previous: currentNode.previous && currentNode.previous.value
+      });
       currentNode = currentNode.next;
     }
-    console.log(list);
+    console.log(list, `Length: ${list.length}`);
   }
 }
