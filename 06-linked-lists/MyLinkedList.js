@@ -12,6 +12,16 @@ class MyLinkedList {
     this.length = 1;
   }
 
+  get(idx) {
+    let currentNode = this.head;
+    let counter = 0;
+    while (counter < idx) {
+      currentNode = currentNode.next;
+      counter++
+    }
+    return currentNode;
+  }
+
   append(value) {
     const newNode = new Node(value);
     this.tail.next = newNode;
@@ -37,10 +47,7 @@ class MyLinkedList {
       return this.prepend(value);
     }
     // traverse the list incrementing n by one each time.
-    let currentNode = this.head;
-    for (let j = 0; j < (n - 1); j++) {
-      currentNode = currentNode.next;
-    }
+    let currentNode = this.get(n - 1);
     // when we reach n - 1, create a new node with the input value.
     let newNode = new Node(value)
     // make the new node's next point to (n - 1)' next.
@@ -50,5 +57,15 @@ class MyLinkedList {
     currentNode.next = newNode;
     this.length++
     return this
+  }
+
+  inspect() {
+    let list = [];
+    let currentNode = this.head;
+    while (currentNode) {
+      list.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    console.log(list);
   }
 }
