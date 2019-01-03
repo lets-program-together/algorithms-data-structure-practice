@@ -85,6 +85,24 @@ class MyLinkedList {
     return nodeToRemove;
   }
 
+  reverse() {
+    if (!this.head.next) {
+      return this.head
+    }
+    let first = this.head;
+    let second = first.next;
+    while (second) {
+      let temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null
+    this.tail = this.head
+    this.head = first
+    return this
+  }
+
   inspect() {
     let list = [];
     let currentNode = this.head;
