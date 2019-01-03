@@ -1,19 +1,13 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-  }
-}
-
 class Stack {
   constructor() {
     this.stack = [];
   }
   peek() {
-    return this.top;
+    return this.stack[this.stack.length - 1];
   }
   push(value) {
-    const newNode = new Node(value);
-    return this.stack.push(newNode);
+    return this.stack.push(value);
+    return this;
   }
   pop() {
     return this.stack.pop();
