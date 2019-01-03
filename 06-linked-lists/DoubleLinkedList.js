@@ -112,6 +112,30 @@ class MyLinkedList {
 
   }
 
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+
+    let first = this.head;
+    let second = first.next;
+
+    while (second) {
+      let tmp = second.next;
+      second.next = first;
+      second.previous = tmp
+      first = second;
+      second = tmp;
+    }
+    this.tail = this.head;
+    this.tail.previous = this.head.next;
+
+    this.head.next = null;
+    this.head = first;
+
+    return this;
+  }
+
   inspect() {
     let list = [];
     let currentNode = this.head;
