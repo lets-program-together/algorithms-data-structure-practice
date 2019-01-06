@@ -47,5 +47,6 @@ class BinarySearchTree {
         currentNode = currentNode.left
       }
     }
+    return null;
   }
 }
