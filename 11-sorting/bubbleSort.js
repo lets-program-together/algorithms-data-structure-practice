@@ -2,6 +2,7 @@ const bubbleSort = arr=> {
   if (arr.length <= 1) {
     return arr
   }
+  
   let swapped = true;
   while (swapped) {
     swapped = false;
