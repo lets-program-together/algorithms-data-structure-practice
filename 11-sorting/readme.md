@@ -1,4 +1,6 @@
 ## Algorithms: Sorting
+Sorting algorithms can be divided into *stable* versus *unstable* algorithms. Stable means two elements with equal keys will appear in the same order in the sorted output as they appear in the input.
+[More Info](https://stackoverflow.com/questions/1517793/what-is-stability-in-sorting-algorithms-and-why-is-it-important)
 ### Bubble Sort
 | Best (Ω) | Average (Θ) | Worst (O) | Space |
 |----------|-------------|-----------|-------|
