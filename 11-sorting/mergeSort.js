@@ -4,7 +4,9 @@ function mergeSort(array) {
   if (array.length === 1) {
     return array
   }
-  // Split Array in into right and left
+  let midIdx = Math.floor(array.length / 2);
+  let left = array.slice(0, midIdx);
+  let right = array.slice(midIdx)
 
   return merge(
     mergeSort(left),
@@ -13,7 +15,32 @@ function mergeSort(array) {
 }
 
 function merge(left, right) {
+  let output = []
+  let l = 0;
+  let r = 0;
 
+  // place element from two array in order
+  while (l < left.length && r < right.length) {
+    if (left[l] < right[r]) {
+      output.push(left[l]);
+      l++;
+    } else {
+      output.push(right[r]);
+      r++;
+    }
+  }
+
+  // place any items remaining in arrays (if any)
+  while (l < left.length) {
+    output.push(left[l]);
+    l++;
+  }
+
+  while (r < right.length) {
+    output.push(right[r]);
+    r++;
+  }
+  return output;
 }
 
 
