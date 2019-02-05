@@ -1,6 +1,7 @@
 ## Algorithms: Sorting
 Sorting algorithms can be divided into *stable* versus *unstable* algorithms. Stable means two elements with equal keys will appear in the same order in the sorted output as they appear in the input.
 [More Info](https://stackoverflow.com/questions/1517793/what-is-stability-in-sorting-algorithms-and-why-is-it-important)
+
 ### Bubble Sort
 | Best (Ω) | Average (Θ) | Worst (O) | Space |
 |----------|-------------|-----------|-------|
@@ -20,6 +21,7 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
   * from index of *(i - 1)* to 0 (or visa versa):
     * insert the element at index i to the correct index (as determined by the sorting criteria)
 * [More Info](https://www.geeksforgeeks.org/insertion-sort/)
+
 ### Selection Sort
 | Best (Ω) | Average (Θ) | Worst (O) | Space |
 |----------|-------------|-----------|-------|
@@ -29,9 +31,27 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
   * from index of *(i + 1)* to last index:
     * find the smallest element.
   * swap the smallest element with element at index i.
+
 ### Merge Sort
 | Best (Ω)      | Average (Θ)      | Worst (O)      | Space |
 |---------------|------------------|----------------|-------|
 |   Ω(n log(n)) |   Θ(n log(n))    |   O(n log(n))  |  O(n) |
 * Divide the collection into halves until no longer divisble.
-* Compare and sort the elements of the halves until array is sorted.
+* Merge the halves in sorted orded until all elements are sorted.
+* For the merging process, compare each element in the the arrays:
+  * move the indexes as you compare and collect the elements.
+  * collect any remaining elements from the arrays (if there are any)
+
+### Quick Sort
+| Best (Ω)      | Average (Θ)      | Worst (O)      | Space     |
+|---------------|------------------|----------------|-----------|
+|   Ω(n log(n)) |   Θ(n log(n))    |   O(n^2)       |  O(log n) |
+
+Uses less space than merge sort but can potentially degenerate to n^2 time complexity. Collection can be sorted in place (without using additional data structures).
+* Chose a random element as the pivot
+* iterate through the collection:
+  * elements that are smaller than the pivot should go on the left side of the pivot.
+  * elements that are greater than the pivot should go on the riht side of the pivot.
+  * keep track of the index by which we will partition the colletion.
+* divide and conquer, run quickSort on elements left of the partition as well as elements on the right of the partition.
+* base case: only execute quickSort logic if starting index is less than ending index.
