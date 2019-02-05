@@ -72,3 +72,8 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
 
 *Heap Sort can be done by first heapifying the collection. (Because there is a mathematical relationship between the parent and children, we can do this in place without creating additional data structure).
 We can then remove the elements one by one from the heap which will give us a sorted collection.*
+
+## Non-Comparison Sorting Algorithms
+If your collection of data is known to be integers that fall between a certain range, then the following algorithms can be used to sort data for potentially faster run time than (n log(n)).
+* [Radix Sort](https://youtu.be/XiuSW_mEn7g)
+* [Counting Sort](https://youtu.be/OKd534EWcdk)
