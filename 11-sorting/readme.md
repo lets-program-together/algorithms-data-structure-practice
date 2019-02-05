@@ -18,7 +18,7 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
 |----------|-------------|-----------|-------|
 |   Ω(n)   |   Θ(n^2)    |   O(n^2)  |  O(1) |
 
-Insertion Sort is really fast for collections that are almost sorted already and or collections with very few elements.
+*Insertion Sort is really fast for collections that are almost sorted already and or collections with very few elements.*
 * Iterate through the collection.
 * For each iteration at index i:
   * from index of *(i - 1)* to 0 (or visa versa):
@@ -42,7 +42,7 @@ Insertion Sort is really fast for collections that are almost sorted already and
 |---------------|------------------|----------------|-------|
 |   Ω(n log(n)) |   Θ(n log(n))    |   O(n log(n))  |  O(n) |
 
-Great if in-memory consumption is not a factor.
+*Great if in-memory consumption is not a factor.*
 * Divide the collection into halves until no longer divisble.
 * Merge the halves in sorted orded until all elements are sorted.
 * For the merging process, compare each element in the the arrays:
@@ -55,7 +55,7 @@ Great if in-memory consumption is not a factor.
 |---------------|------------------|----------------|-----------|
 |   Ω(n log(n)) |   Θ(n log(n))    |   O(n^2)       |  O(log n) |
 
-Uses less space than merge sort but can potentially degenerate to n^2 time complexity. Collection can be sorted in place (without using additional data structures). Quick sort is great for general use cases because if you're careful in choosing the pivot, worse case senario is not likely.
+*Uses less space than merge sort but can potentially degenerate to n^2 time complexity. Collection can be sorted in place (without using additional data structures). Quick sort is great for general use cases because if you're careful in choosing the pivot, worse case senario is not likely.*
 * Chose a random element as the pivot
 * iterate through the collection:
   * elements that are smaller than the pivot should go on the left side of the pivot.
