@@ -48,7 +48,7 @@ Great if in-memory consumption is not a factor.
 |---------------|------------------|----------------|-----------|
 |   Ω(n log(n)) |   Θ(n log(n))    |   O(n^2)       |  O(log n) |
 
-Uses less space than merge sort but can potentially degenerate to n^2 time complexity. Collection can be sorted in place (without using additional data structures).
+Uses less space than merge sort but can potentially degenerate to n^2 time complexity. Collection can be sorted in place (without using additional data structures). Quick sort is great for general use cases because if you're careful in choosing the pivot, worse case senario is not likely.
 * Chose a random element as the pivot
 * iterate through the collection:
   * elements that are smaller than the pivot should go on the left side of the pivot.
@@ -56,3 +56,10 @@ Uses less space than merge sort but can potentially degenerate to n^2 time compl
   * keep track of the index by which we will partition the colletion.
 * divide and conquer, run quickSort on elements left of the partition as well as elements on the right of the partition.
 * base case: only execute quickSort logic if starting index is less than ending index.
+
+### Heap Sort
+| Best (Ω)      |   Average (Θ)    |   Worst (O)    |   Space   |
+|---------------|------------------|----------------|-----------|
+|   Ω(n log(n)) |   Θ(n log(n))    |   O(n log(n))  |    O(1)   |
+*Heap Sort can be done by first heapifying the collection. (Because there is a mathematical relationship between the parent and children, we can do this in place without creating additional data structure).
+We can then remove the elements one by one from the heap which will give us a sorted collection.*
