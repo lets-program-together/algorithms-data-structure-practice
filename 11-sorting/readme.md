@@ -15,7 +15,7 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
 | Best (Ω) | Average (Θ) | Worst (O) | Space |
 |----------|-------------|-----------|-------|
 |   Ω(n)   |   Θ(n^2)    |   O(n^2)  |  O(1) |
-
+Insertion Sort is really fast for collections that are almost sorted already and or collections with very few elements.
 * Iterate through the collection.
 * For each iteration at index i:
   * from index of *(i - 1)* to 0 (or visa versa):
@@ -36,6 +36,7 @@ Sorting algorithms can be divided into *stable* versus *unstable* algorithms. St
 | Best (Ω)      | Average (Θ)      | Worst (O)      | Space |
 |---------------|------------------|----------------|-------|
 |   Ω(n log(n)) |   Θ(n log(n))    |   O(n log(n))  |  O(n) |
+Great if in-memory consumption is not a factor.
 * Divide the collection into halves until no longer divisble.
 * Merge the halves in sorted orded until all elements are sorted.
 * For the merging process, compare each element in the the arrays:
