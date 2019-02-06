@@ -46,5 +46,5 @@ class Queue {
   }
 }
 
-const myQueue = new Queue();
+module.exports = Queue;
 

@@ -1,3 +1,5 @@
+const Queue =  require('../07-stacks-queues/Queue');
+
 class Node {
   constructor(value) {
     this.left = null;
@@ -130,6 +132,28 @@ class BinarySearchTree {
       }
     }
   }
+
+  bfs() {
+    // start at root node
+    // create list to contain the values
+    const list = [];
+    const queue = new Queue();
+    queue.enqueue(this.root);
+    while (queue.length > 0) {
+      let currentNode = queue.dequeue();
+      list.push(currentNode.value);
+
+      if (currentNode.left) {
+        queue.enqueue(currentNode.left)
+      }
+      if (currentNode.right) {
+        queue.enqueue(currentNode.right)
+      }
+    }
+
+    return list
+    // create a queue to store each node we must traverse 
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -141,6 +165,7 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 tree.remove(170)
+tree.bfs()
 JSON.stringify(traverse(tree.root))
 
 //     9
