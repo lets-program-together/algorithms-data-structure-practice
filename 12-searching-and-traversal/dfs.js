@@ -131,10 +131,23 @@ class BinarySearchTree {
     }
   }
 
-  dfs(node = this.root, list = []) {
-    node.left && this.dfs(node.left, list);
+  inOrder(node = this.root, list = []) {
+    node.left && this.inOrder(node.left, list);
     list.push(node.value);
-    node.right && this.dfs(node.right, list);
+    node.right && this.inOrder(node.right, list);
+    return list
+  }
+
+  preOrder(node = this.root, list = []) {
+    list.push(node.value);
+    node.left && this.preOrder(node.left, list);
+    node.right && this.preOrder(node.right, list);
+    return list
+  }
+  postOrder(node = this.root, list = []) {
+    node.left && this.postOrder(node.left, list);
+    node.right && this.postOrder(node.right, list);
+    list.push(node.value);
     return list
   }
 }
@@ -160,4 +173,4 @@ function traverse(node) {
   return tree;
 }
 
-tree.dfs()
+tree.inOrder()
