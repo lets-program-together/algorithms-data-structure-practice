@@ -16,16 +16,19 @@
 ## Algorithms: (Graph / Tree) Traversal
 
 ### Breadth-First Search
+
 * Shortest Path
 * Closer Nodes
 * Requires more resources in-memory since nodes from each level needs to be kept in memory.
 
 ### Depth-First Search
 * Less Memory
-* Does Path Exist
+* Checks to see if a path exists between one node and another.
 * Can be slow
-* In-order - *Elements will be looked up from lowest to highest.*
-* Pre-order - *Output can be easily used to recreate the tree.*
-* Post-order - *Lowest level elements from left to right will be added first.*
+* Space complexity is dependent on height of tree.
+* Tree types of DFS:
+  * In-order - *Elements will be looked up after traversing left and before traversing right*
+  * Pre-order - *Elements will be looked before traversing traverse the tree.*
+  * Post-order - *Elements will be looked up after traversing*
 
 [BFS vs DFS](https://stackoverflow.com/questions/9844193/what-is-the-time-and-space-complexity-of-a-breadth-first-and-depth-first-tree-tr)
