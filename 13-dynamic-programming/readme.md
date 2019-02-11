@@ -34,3 +34,8 @@ function fibonacciMemoized(n) {
 }
 ```
 "In computing, _memoization_ is an optimization technique used to primarily to speed up computer programs by remembering the output of an expensive function call and return the cached result when the same input occurs again for that function..." - [Wikipedia](https://en.wikipedia.org/wiki/Memoization)
+
+#### Sample Interview Questions:
+* [House Robber](https://leetcode.com/problems/house-robber/)
+* [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+* [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
