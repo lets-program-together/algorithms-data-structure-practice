@@ -39,3 +39,27 @@ function fibonacciMemoized(n) {
 * [House Robber](https://leetcode.com/problems/house-robber/)
 * [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 * [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+// the value we are memoizing is the last biggest value that is not adjacent to current value
+
+var rob = function(nums) {
+    if (nums.length === 0) return 0;
+    if (nums.length === 1) return nums[0];
+
+    let maxValue = Math.max(nums[0] || 0, nums[1] || 0);
+    let runnerUp = nums[0] || 0;
+    let tmp;
+    for (let i = 2; i< nums.length; i++) {
+        tmp = maxValue
+        maxValue = Math.max(maxValue, runnerUp + nums[i]);
+        runnerUp = tmp;
+    }
+    return maxValue
+};
+```
