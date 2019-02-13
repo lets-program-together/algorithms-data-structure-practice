@@ -35,10 +35,8 @@ function fibonacciMemoized(n) {
 ```
 "In computing, _memoization_ is an optimization technique used to primarily to speed up computer programs by remembering the output of an expensive function call and return the cached result when the same input occurs again for that function..." - [Wikipedia](https://en.wikipedia.org/wiki/Memoization)
 
-#### Sample Interview Questions:
-* [House Robber](https://leetcode.com/problems/house-robber/)
-* [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-
+### Sample Interview Questions:
+#### [House Robber](https://leetcode.com/problems/house-robber/)
 ```javascript
 /**
  * @param {number[]} nums
@@ -63,7 +61,7 @@ var rob = function(nums) {
 };
 ```
 
-* [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+#### [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 
   * the number of ways one can climb stairs is equal to the sum of the number of ways one can climb the steps before N
   * since the solution to this problem is derived from the solution to its sub-problem, we can use dynamic programming to improve time-complexity to O(n) by making a space complexity trade-off of O(n)
@@ -109,5 +107,7 @@ var climbStairs = function(n) {
         return (climbStairs(n - 1) + climbStairs(n -2));
     }
 ```
+
+* [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 
