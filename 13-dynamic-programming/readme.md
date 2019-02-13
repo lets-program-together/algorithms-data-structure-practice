@@ -38,7 +38,6 @@ function fibonacciMemoized(n) {
 #### Sample Interview Questions:
 * [House Robber](https://leetcode.com/problems/house-robber/)
 * [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-* [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 
 ```javascript
 /**
@@ -63,3 +62,52 @@ var rob = function(nums) {
     return maxValue
 };
 ```
+
+* [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+
+  * the number of ways one can climb stairs is equal to the sum of the number of ways one can climb the steps before N
+  * since the solution to this problem is derived from the solution to its sub-problem, we can use dynamic programming to improve time-complexity to O(n) by making a space complexity trade-off of O(n)
+
+```javascript
+var climbStairs = function(n) {
+    let cache = {};
+    
+    let howManyWays = function(n) {
+        if (n in cache) {
+            return cache[n];
+        }
+
+        if (n < 4) {
+            cache[n] = n;
+            return cache[n];
+        }
+        
+        cache[n] = (howManyWays(n - 1) + howManyWays(n - 2));
+        return cache[n];
+    }
+    
+    return howManyWays(n);
+};
+```
+
+*Iterative approach: O(n) time-complexity, O(n) space-complexity*
+```javascript
+var climbStairs = function(n) {
+	let steps = [1 ,1];
+	for (let i = 2; i < n + 1; i++) {
+		steps.push(steps[i - 1] + steps[i -2]);
+	}
+	return steps[n];
+}
+```
+
+*Solution without dynamic programming: O(n^2) time complexity, O(1) space:*
+
+```javascript
+    var climbStairs = function(n) {
+        if (n < 4) return n;
+        return (climbStairs(n - 1) + climbStairs(n -2));
+    }
+```
+
+
