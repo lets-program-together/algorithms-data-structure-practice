@@ -1,5 +1,11 @@
 ### Dynamic Programming
 *Oversimplification: Dynamic Program is basically combining divide and conquer with memoization.*
+We should think about dynamic programming when:
+* A problem can be divided into subproblems.
+* Recusive Solution
+* Are there repititve subproblems?
+* Memoize subproblems (adequate memory / no memory constraints)
+
 
 ```javascript
 function fibonacci(n) {
