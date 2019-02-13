@@ -88,7 +88,7 @@ var climbStairs = function(n) {
 };
 ```
 
-*Iterative approach: O(n) time-complexity, O(n) space-complexity*
+* *Iterative approach: O(n) time-complexity, O(n) space-complexity*
 ```javascript
 var climbStairs = function(n) {
 	let steps = [1 ,1];
@@ -99,7 +99,7 @@ var climbStairs = function(n) {
 }
 ```
 
-*Solution without dynamic programming: O(n^2) time complexity, O(1) space:*
+* *Solution without dynamic programming: O(n^2) time complexity, O(1) space:*
 
 ```javascript
     var climbStairs = function(n) {
@@ -108,6 +108,24 @@ var climbStairs = function(n) {
     }
 ```
 
-* [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+#### [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+* The thing we want cached are:
+  * The maximum possible profit so far
+  * The lowest purchase price so far
+```javascript
+var maxProfit = function(prices) {
+    let lowestPrice = prices[0];
+    let profits = [0];
+    for (let day = 1; day < prices.length; day++) {
+        if (prices[day] < lowestPrice) {
+            lowestPrice = prices[day];
+        } else {
+            profits.push(Math.max(profits[profits.length - 1], prices[day] - lowestPrice))
+        }
+    }
+    
+    return profits[profits.length - 1]
+};
+```
 
 
