@@ -60,7 +60,7 @@ var rob = function(nums) {
     return maxValue
 };
 ```
-
+---
 #### [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 
   * the number of ways one can climb stairs is equal to the sum of the number of ways one can climb the steps before N
@@ -107,7 +107,7 @@ var climbStairs = function(n) {
         return (climbStairs(n - 1) + climbStairs(n -2));
     }
 ```
-
+---
 #### [Best Time to Buy/Sell Stocks](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 * The thing we want cached are:
   * The maximum possible profit so far
